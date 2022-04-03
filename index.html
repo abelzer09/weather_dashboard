@@ -10,64 +10,62 @@
     <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 <body>
-    <h1>Weather DashBoard</h1>
+    <header><h1>Weather DashBoard</h1></header>
     <div class="row">
-        <aside class="col-4 col-md-2"><h3>Search for a City</h3>
+        <aside class="col-4 col-md-2"><h3>Search for a City:</h3>
             <form id="search-form" class="form w-100">
             <input type="text" placeholder="City" id="search-input" class="form-input w-100"/>
             <button class="btn btn-info btn-block" id="submitBtn">Search</button>
+              <br>
+              <div class="col-4 col-md-2" id="searchHistory"></div>
             </form>
-            
         </aside>
-        <main class="col-8 col-md-10 jumbotron border border-primary" id="Current"><h3 id="city"><span id="currentDate"></span><i id="currentIcon"></i></h3>
-          <!-- <h3 id="city"><span id="currentDate"></span><i id="icon"></i></h3> -->
+        <main class="col-8 col-md-10" id="Current">
+          <div class="border border-primary">
+          <h3 id="city"><span id="currentDate"></span><img id="currentIcon"></img></h3>
           <p id="currentTemp"></p>
           <p id="currentWind"></p>
           <p id="currentHum"></p>
           <p id="currentUv"></p>
-
+          </div>
         <main>
-    </div>
-    <div class="row align-items-center">
-        <div class="col-4 col-md-2" id="searchHistory">
-        </div>
-        <div class="card-deck col-8 col-md-10">
-            <div class="card" id="day1" >
+      <div class="card-deck col-8 col-md-10">
+            <div class="card text-white bg-secondary" id="day1" >
               <h4 class="card-text" id="date1"></h4>
-              <i id="icon1"></i>
+              <img id="icon1"></img>
               <p id = "temp1"></p>
               <p id = "wind1"></p>
               <p id = "hum1"></p>
             </div>
-            <div class="card" id="day2">
+            <div class="card text-white bg-secondary" id="day2">
               <h4 class="card-text" id="date2"></h4>
-              <i id="icon2"></i>
+              <img id="icon2"></img>
               <p id = "temp2"></p>
               <p id = "wind2"></p>
               <p id = "hum2"></p>
             </div>
-            <div class="card" id="day3">
+            <div class="card text-white bg-secondary" id="day3">
               <h4 class="card-text" id="date3"></h4>
-              <i id="icon3"></i>
+              <img id="icon3"></img>
               <p id = "temp3"></p>
               <p id = "wind3"></p>
               <p id = "hum3"></p>
             </div>
-            <div class="card" id="day4">
+            <div class="card text-white bg-secondary" id="day4">
               <h4 class="card-text" id="date4"></h4>
-              <i id="icon4"></i>
+              <img id="icon4"></img>
               <p id = "temp4"></p>
               <p id = "wind4"></p>
               <p id = "hum4"></p>
               </div>
-              <div class="card" id="day5">
+              <div class="card text-white bg-secondary" id="day5">
                 <h4 class="card-text" id="date5"></h4>
-                <i id="icon5"></i>
+                <img id="icon5"></img>
                 <p id = "temp5"></p>
                 <p id = "wind5"></p>
                 <p id = "hum5"></p>
               </div>
-        </div>
+      </div>
     </div>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

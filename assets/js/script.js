@@ -39,9 +39,7 @@ fetch(queryURL)
     var reformatDate = moment(date, "X" ).format("l")
     dateEl.textContent = reformatDate
     var cIcon = data1.daily[0].weather[0].icon
-    var wIcon = document.createElement("img");
-    wIcon.src = "http://openweathermap.org/img/wn/" + cIcon + "@2x.png"
-    currentIconEl.appendChild(wIcon)
+    currentIconEl.src = "http://openweathermap.org/img/wn/" + cIcon + "@2x.png"
     var cTemp = data1.daily[0].temp.max;
     currentTemp1El.textContent = "Temp: " + cTemp + " °F"
     var cWind = data1.daily[0].wind_speed
@@ -58,9 +56,7 @@ fetch(queryURL)
         dateDiv.textContent = reformatDate
         var wIcona = document.getElementById(`icon${i}`)
         var iconA = data1.daily[i].weather[0].icon
-        var iconEl = document.createElement("img");
-        iconEl.src = "http://openweathermap.org/img/wn/" + iconA + "@2x.png"
-        wIcona.appendChild(iconEl)
+        wIcona.src = "http://openweathermap.org/img/wn/" + iconA + "@2x.png"
         var tempDiv = document.getElementById(`temp${i}`)
         var temps = data1.daily[i].temp.max
         tempDiv.textContent = "Temp: " + temps + " °F"
@@ -78,9 +74,13 @@ fetch(queryURL)
 }
 
 BtnSubmit.addEventListener("click", function(event){
-    event.preventDefault();
+    event.preventDefault()
     console.log(citySearch.value)
     apiCity(citySearch.value)
+    if (citySearch.value == 0 ) {
+        alert("must enter a vaild city!");
+        return null;
+      }
     if (searchCities.includes(citySearch.value)) {
         return
     }else {

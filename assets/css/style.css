@@ -1,0 +1,26 @@
+img {
+    max-height: 64px;
+    max-width: 64px;
+}
+
+h1 {
+
+    text-align: center;
+    padding-bottom:5px;
+    margin-bottom:10px;
+    color: white;
+    background-image: linear-gradient(to right, blue , darkblue);
+    border: 3px solid blue;
+
+}
+
+input {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-bottom:10px;
+}
+
+
+.card {
+    margin-top: 10px;
+}
