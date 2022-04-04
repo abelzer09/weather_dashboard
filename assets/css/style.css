@@ -39,7 +39,6 @@ input {
     padding-left: 10px;
     margin-right: 20%;
     margin-left: 1%;
-    /* margin-right:10%; */
 }
 .card {
     margin-top: 10px;
@@ -87,6 +86,6 @@ input {
     padding: 3px;
     background-color: purple;
     color: white;
-    max-width: fit-content
+    max-width: fit-content;
 }
 
