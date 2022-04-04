@@ -11,7 +11,7 @@ var unRange = document.getElementById("unIndex");
 var BtnSubmit = document.getElementById("submitBtn");
 var citySearch = document.getElementById("search-input")
 var searchCities = JSON.parse(window.localStorage.getItem("cities")) || [];
-console.log(searchCities)
+var cityHistory = document.getElementById("searchHistory")
 
 function apiCity(city){
 var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + city  + "&appid=" + APIKey
@@ -88,7 +88,6 @@ fetch(queryURL)
 
 BtnSubmit.addEventListener("click", function(event){
     event.preventDefault()
-    console.log(citySearch.value)
     apiCity(citySearch.value)
     if (citySearch.value == 0 ) {
         alert("must enter a vaild city!");
@@ -117,8 +116,8 @@ cityHistory.appendChild(btn)
 btn.classList.add("btnHistory")    
 }
 
-btn.addEventListener("click", function(event){
-    event.target.value();
-    apiCity(citySearch.value)
+cityHistory.addEventListener("click", function(event){
+    event.preventDefault();
+    apiCity(event.target.value)
 
 })
