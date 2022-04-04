@@ -114,5 +114,11 @@ var btn = document.createElement("button")
 btn.innerText = searchCities[j]
 btn.value = searchCities[j]
 cityHistory.appendChild(btn)
-    
+btn.classList.add("btnHistory")    
 }
+
+btn.addEventListener("click", function(event){
+    event.target.value();
+    apiCity(citySearch.value)
+
+})
