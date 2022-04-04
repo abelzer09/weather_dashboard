@@ -7,10 +7,11 @@ var currentTemp1El = document.getElementById('currentTemp')
 var currentWindEl = document.getElementById('currentWind')
 var currentHumEl = document.getElementById('currentHum')
 var currentUvEl = document.getElementById('currentUv')
-
+var unRange = document.getElementById("unIndex");
 var BtnSubmit = document.getElementById("submitBtn");
 var citySearch = document.getElementById("search-input")
 var searchCities = JSON.parse(window.localStorage.getItem("cities")) || [];
+var BtnHistory = document.getElementsByClassName("historyBtn")
 console.log(searchCities)
 
 function apiCity(city){
@@ -47,8 +48,22 @@ fetch(queryURL)
     var cHum = data1.daily[0].humidity
     currentHumEl.textContent = "Humidity: " + cHum + " %"
     var cUv = data1.daily[0].uvi
-    currentUvEl.textContent = "UV Index: " + cUv
+    unRange.textContent = cUv
     console.log(data1);
+    // currentUvEl.innerHTML = "UV Index: "
+    // var unRange = document.querySelector("unIndex");
+
+    if(cUv < 3 ){
+        unRange.classList.add("good")
+        } else if(cUv < 6){
+        unRange.classList.add("med")
+        } else if(cUv< 8 || cUv > 11 ){
+        unRange.classList.add("high")
+        } else  {
+        unRange.classList.add("danger")
+        }
+
+
     for (let i = 1 ; i < 6; i++) {
         var dateDiv = document.getElementById(`date${i}`)
         var date = data1.daily[i].dt
@@ -66,6 +81,7 @@ fetch(queryURL)
         var humDiv = document.getElementById(`hum${i}`)
         var humid = data1.daily[i].humidity
         humDiv.textContent = "Humidity " + humid +" %"
+    
 
     }
 }).catch(function (error) {
@@ -89,7 +105,9 @@ BtnSubmit.addEventListener("click", function(event){
         var btn = document.createElement("button")
         btn.innerText = citySearch.value
         btn.value = citySearch.value
+        btn.classList.add("historyBtn")
         cityHistory.appendChild(btn)
+        // btn.classList.add("historyBtn")
         localStorage.setItem("cities", JSON.stringify(searchCities))
     }
 
@@ -103,3 +121,22 @@ btn.value = searchCities[j]
 cityHistory.appendChild(btn)
     
 }
+
+BtnHistory.addEventListener("click", function(event){
+    preventDefault();
+    apiCity(event.target.value)
+    if (searchCities.includes(citySearch.value)) {
+        return
+    }
+})
+
+// for (let i = 0; i < currentUvEl.length; i++) {
+//     if(currentEl.value < 3 ){
+//         unRange.setAttribute("good")
+//     }
+//     }else if(currentEl.vaule){
+//         $(timeBlockEl[i]).addClass("future")
+//     } else{
+//         $(timeBlockEl[i]).addClass("present")
+//     }
+// }

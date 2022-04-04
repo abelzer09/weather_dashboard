@@ -14,13 +14,71 @@ h1 {
 
 }
 
+.rowEl{
+    margin-left:1px;
+}
+
 input {
     padding-top: 5px;
     padding-bottom: 5px;
     margin-bottom:10px;
 }
 
-
+.card-deck{
+    padding-right:5px;
+}
+.main{
+    padding-left: 10px;
+    margin-right: 20%;
+    margin-left: 1%;
+    /* margin-right:10%; */
+}
 .card {
     margin-top: 10px;
+    padding-left:px;
 }
+
+.good {
+    font-size: .75 rem;
+    margin-right: 10px;
+    border: 1px solid green;
+    border-radius: 5px;
+    padding: 3px;
+    background-color: green;
+    color: white;
+    max-width: fit-content
+}
+
+.med {
+    font-size: .50 rem;
+    margin-left: 10px;
+    border: 1px solid yellow;
+    border-radius: 5px;
+    padding: 3px;
+    background-color: yellow;
+    color: black;
+    max-width: fit-content
+}
+
+.high {
+    font-size: .75 rem;
+    margin-left: 10px;
+    border: 1px solid red;
+    border-radius: 5px;
+    padding: 3px;
+    background-color: red;
+    color: white;
+    max-width: fit-content
+}
+
+.danger{
+    font-size: .75 rem;
+    margin-left: 10px;
+    border: 1px solid purple;
+    border-radius: 5px;
+    padding: 3px;
+    background-color: purple;
+    color: white;
+    max-width: fit-content
+}
+

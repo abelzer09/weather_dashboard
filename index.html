@@ -11,25 +11,24 @@
 </head>
 <body>
     <header><h1>Weather DashBoard</h1></header>
-    <div class="row">
-        <aside class="col-4 col-md-2"><h3>Search for a City:</h3>
+    <div class="row rowEl">
+        <aside class="searchAsid col-5 col-md-3"><h3>Search for a City:</h3>
             <form id="search-form" class="form w-100">
             <input type="text" placeholder="City" id="search-input" class="form-input w-100"/>
             <button class="btn btn-info btn-block" id="submitBtn">Search</button>
               <br>
-              <div class="col-4 col-md-2" id="searchHistory"></div>
+              <div class="sHistory col-5 col-md-3" id="searchHistory"></div>
             </form>
         </aside>
-        <main class="col-8 col-md-10" id="Current">
-          <div class="border border-primary">
+      <main class="mainEL col-7 col-md-9" id="Current">
+        <div class="main border border-primary">
           <h3 id="city"><span id="currentDate"></span><img id="currentIcon"></img></h3>
           <p id="currentTemp"></p>
           <p id="currentWind"></p>
           <p id="currentHum"></p>
-          <p id="currentUv"></p>
+          <p id="currentUv">UV Index: <span id="unIndex"></span></p>
           </div>
-        <main>
-      <div class="card-deck col-8 col-md-10">
+          <div class="card-deck col-8 col-md-10">
             <div class="card text-white bg-secondary" id="day1" >
               <h4 class="card-text" id="date1"></h4>
               <img id="icon1"></img>
@@ -65,7 +64,8 @@
                 <p id = "wind5"></p>
                 <p id = "hum5"></p>
               </div>
-      </div>
+          </div>
+      </main>
     </div>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
