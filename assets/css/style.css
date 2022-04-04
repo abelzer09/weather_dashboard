@@ -1,3 +1,11 @@
+.hide {
+    display: none;
+}
+
+.show{
+    display: block;
+}
+
 img {
     max-height: 64px;
     max-width: 64px;
@@ -35,7 +43,7 @@ input {
 }
 .card {
     margin-top: 10px;
-    padding-left:px;
+    padding-left:5px;
 }
 
 .good {
