@@ -14,7 +14,7 @@ var searchCities = JSON.parse(window.localStorage.getItem("cities")) || [];
 var cityHistory = document.getElementById("searchHistory")
 // function that for pulls city search data from api
 function apiCity(city){
-var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + city  + "&appid=" + APIKey
+var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city  + "&appid=" + APIKey
 fetch(queryURL)
 .then(function (response) {
 	if (response.ok) {
