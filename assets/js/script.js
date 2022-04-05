@@ -12,7 +12,7 @@ var BtnSubmit = document.getElementById("submitBtn");
 var citySearch = document.getElementById("search-input")
 var searchCities = JSON.parse(window.localStorage.getItem("cities")) || [];
 var cityHistory = document.getElementById("searchHistory")
-
+// function that for pulls city search data from api
 function apiCity(city){
 var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + city  + "&appid=" + APIKey
 fetch(queryURL)
@@ -22,10 +22,10 @@ fetch(queryURL)
 	} else {
 		return Promise.reject(response);
 	}
-})
+})       //fuction to convert city search to latitude and longitude coordinates for weather data api
 .then(function (data) {
       var lat = data.coord.lat
-      var lon = data.coord.lon
+      var lon = data.coord.lon          
 	return fetch("https://api.openweathermap.org/data/2.5/onecall?" + "lat=" + lat + "&lon=" + lon +"&exclude=minutely,hourly,alerts" +"&appid=" + APIKey + "&units=imperial");
 })
 .then(function (response) {
@@ -33,7 +33,7 @@ fetch(queryURL)
 		return response.json();
 	} else {
 		return Promise.reject(response);
-	}
+	}     // fuction to pull data for current weather information
 }).then(function (data1) {
     var date = data1.daily[0].dt
     var reformatDate = moment(date, "X" ).format("l")
@@ -50,17 +50,18 @@ fetch(queryURL)
     unRange.textContent = cUv
     console.log(data1);
    
+    // conditional statement for color uvi data index
     if(cUv < 3 ){
         unRange.classList.add("good")
-        } else if(cUv < 6){
+        } else if(cUv < 6 || cUv > 8){
         unRange.classList.add("med")
-        } else if(cUv< 8 || cUv > 11 ){
+        } else if(cUv < 8 || cUv > 11 ){
         unRange.classList.add("high")
         } else  {
         unRange.classList.add("danger")
         }
 
-
+            // for log for getting weather data for 5day forcast
     for (let i = 1 ; i < 6; i++) {
         var dateDiv = document.getElementById(`date${i}`)
         var date = data1.daily[i].dt
@@ -85,7 +86,7 @@ fetch(queryURL)
 	console.warn(error);
 });
 }
-
+            // event listener for initial city search user submition
 BtnSubmit.addEventListener("click", function(event){
     event.preventDefault()
     apiCity(citySearch.value)
@@ -95,7 +96,7 @@ BtnSubmit.addEventListener("click", function(event){
       }
     if (searchCities.includes(citySearch.value)) {
         return
-    }else {
+    }else {        //sets search cities to local storage
         searchCities.push(citySearch.value)
         var cityHistory = document.getElementById("searchHistory")
         var btn = document.createElement("button")
@@ -106,7 +107,7 @@ BtnSubmit.addEventListener("click", function(event){
     }
 
 })
-
+    //fuction to dynamically create buttons for saved city history 
 for (let j = 0; j < searchCities.length; j++) {
 var cityHistory = document.getElementById("searchHistory")
 var btn = document.createElement("button")
@@ -115,6 +116,7 @@ btn.value = searchCities[j]
 cityHistory.appendChild(btn)
 btn.classList.add("btn", "btn-secondary", "btn-lg", "btn-block")    
 }
+// event listener for saved city search history buttons
 cityHistory.addEventListener("click", function(event){
     event.preventDefault();
     apiCity(event.target.value)
