@@ -6,11 +6,11 @@ In this project I was tasked with createing a Weather Dashboard using data acces
 ## Mock up
 
 The following image show what the assigned website shouw resemble in appearace and fuctionality:
-![](./assets/images/06-server-side-apis-homework-demo.png)
+![Mockup gif](./assets/images/06-server-side-apis-homework-demo.png)
 
 
 ## Deployed Link
-![](https://abelzer09.github.io/weather_dashboard/)
+[Link to Deployed website](https://abelzer09.github.io/weather_dashboard/)
 
 ## Link to pseudo code
-![](./pseudocodehw6.md)
+[Link Pseudo code](./pseudocodehw6.md)
